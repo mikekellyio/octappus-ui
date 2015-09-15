@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915123241) do
+ActiveRecord::Schema.define(version: 20150915210807) do
 
   create_table "associated_steps", force: :cascade do |t|
     t.integer  "child_id"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20150915123241) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "awards_children", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "award_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "awards_children", ["award_id"], name: "index_awards_children_on_award_id"
+  add_index "awards_children", ["child_id"], name: "index_awards_children_on_child_id"
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
