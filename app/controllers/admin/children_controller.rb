@@ -3,7 +3,7 @@ class Admin::ChildrenController < ApplicationController
 
   # GET /admin/children
   def index
-    @admin_children = Child.order("team_id ASC, first_name ASC").all
+    @admin_children = Child.order(:first_name).all
   end
 
   # GET /admin/children/1

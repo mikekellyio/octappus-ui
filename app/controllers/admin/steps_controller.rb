@@ -29,7 +29,7 @@ class Admin::StepsController < ApplicationController
     @step = Step.new(admin_step_params)
 
     if @step.save
-      redirect_to admin_step_url(@step), notice: 'Step was successfully created.'
+      redirect_to admin_steps_url, notice: 'Step was successfully created.'
     else
       render :new
     end

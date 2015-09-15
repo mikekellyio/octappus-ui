@@ -83,7 +83,7 @@ RSpec.describe Admin::StepsController, type: :controller do
 
       it "redirects to the created step" do
         post :create, {:step => valid_attributes}, valid_session
-        expect(response).to redirect_to(admin_step_url(Step.last))
+        expect(response).to redirect_to(admin_steps_url)
       end
     end
 
