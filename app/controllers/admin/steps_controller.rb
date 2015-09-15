@@ -2,13 +2,9 @@ class Admin::StepsController < ApplicationController
   before_action :set_admin_step, only: [:show, :edit, :update, :destroy]
   include TheSortableTreeController::Rebuild
 
-  def manage
-    @steps = Step.nested_set.select('id, title, content, parent_id').all
-  end
-
   # GET /admin/steps
   def index
-    @steps = Step.all
+    @steps = Step.nested_set.select('id, title, content, parent_id').all
   end
 
   # GET /admin/steps/1

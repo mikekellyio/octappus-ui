@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :steps do
       collection do
-        get :manage
-
         # required for Sortable GUI server side actions
         post :rebuild
       end
