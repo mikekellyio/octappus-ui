@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20150914225443) do
 
+  create_table "associated_steps", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "step_id"
+    t.datetime "award_received_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "associated_steps", ["child_id"], name: "index_associated_steps_on_child_id"
+  add_index "associated_steps", ["step_id"], name: "index_associated_steps_on_step_id"
+
   create_table "awards", force: :cascade do |t|
     t.string   "name"
     t.integer  "step_id"
@@ -22,6 +33,15 @@ ActiveRecord::Schema.define(version: 20150914225443) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nickname"
+    t.date     "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
