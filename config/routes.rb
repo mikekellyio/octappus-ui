@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :children
+  end
+  namespace :admin do
     resources :steps do
       collection do
         get :manage

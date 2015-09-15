@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Children</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Nickname</th>
+      <th>Birthday</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_children.each do |admin_child| %>
+      <tr>
+        <td><%= admin_child.first_name %></td>
+        <td><%= admin_child.last_name %></td>
+        <td><%= admin_child.nickname %></td>
+        <td><%= admin_child.birthday %></td>
+        <td><%= link_to 'Show', admin_child_path(admin_child) %></td>
+        <td><%= link_to 'Edit', edit_admin_child_path(admin_child) %></td>
+        <td><%= link_to 'Destroy', admin_child_path(admin_child), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child', new_admin_child_path %>
