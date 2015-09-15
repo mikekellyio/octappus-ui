@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914171853) do
+ActiveRecord::Schema.define(version: 20150914225443) do
+
+  create_table "awards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "step_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
@@ -20,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150914171853) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "title"
+    t.text     "content"
     t.integer  "parent_id"
     t.integer  "lft",                        null: false
     t.integer  "rgt",                        null: false
