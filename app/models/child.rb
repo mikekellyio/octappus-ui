@@ -1,6 +1,6 @@
 class Child < ActiveRecord::Base
 #  belongs_to :club
-#  belongs_to :team
+  belongs_to :team
 
   validates_presence_of :first_name, :last_name
 
@@ -9,6 +9,10 @@ class Child < ActiveRecord::Base
 
   def name
     "#{first_name} #{last_name}"
+  end
+  
+  def team_name
+    team.name if team.present?
   end
 
 end

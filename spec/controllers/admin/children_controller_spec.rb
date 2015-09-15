@@ -71,25 +71,25 @@ RSpec.describe Admin::ChildrenController, type: :controller do
     context "with valid params" do
       it "creates a new Admin::Child" do
         expect {
-          post :create, {:admin_child => valid_attributes}, valid_session
+          post :create, {:child => valid_attributes}, valid_session
         }.to change(Child, :count).by(1)
       end
 
       it "assigns a newly created admin_child as @admin_child" do
-        post :create, {:admin_child => valid_attributes}, valid_session
+        post :create, {:child => valid_attributes}, valid_session
         expect(assigns(:admin_child)).to be_a(Child)
         expect(assigns(:admin_child)).to be_persisted
       end
 
       it "redirects to the created admin_child" do
-        post :create, {:admin_child => valid_attributes}, valid_session
+        post :create, {:child => valid_attributes}, valid_session
         expect(response).to redirect_to(admin_child_path(Child.last))
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved admin_child as @admin_child" do
-        post :create, {:admin_child => invalid_attributes}, valid_session
+        post :create, {:child => invalid_attributes}, valid_session
         expect(assigns(:admin_child)).to be_a_new(Child)
       end
     end
@@ -98,26 +98,27 @@ RSpec.describe Admin::ChildrenController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        {first_name: "Updated", last_name: "Updated"}
+        {first_name: "Updated", last_name: "Updated", team_id: 1}
       }
 
       it "updates the requested admin_child" do
         child = Child.create! valid_attributes
-        put :update, {:id => child.to_param, :admin_child => new_attributes}, valid_session
+        put :update, {:id => child.to_param, :child => new_attributes}, valid_session
         child.reload
         expect(child.first_name).to eq("Updated")
         expect(child.last_name).to eq("Updated")
+        expect(child.team_id).to eq(1)
       end
 
       it "assigns the requested admin_child as @admin_child" do
         child = Child.create! valid_attributes
-        put :update, {:id => child.to_param, :admin_child => valid_attributes}, valid_session
+        put :update, {:id => child.to_param, :child => valid_attributes}, valid_session
         expect(assigns(:admin_child)).to eq(child)
       end
 
       it "redirects to the admin_child" do
         child = Child.create! valid_attributes
-        put :update, {:id => child.to_param, :admin_child => valid_attributes}, valid_session
+        put :update, {:id => child.to_param, :child => valid_attributes}, valid_session
         expect(response).to redirect_to(admin_child_path(child))
       end
     end
@@ -125,13 +126,13 @@ RSpec.describe Admin::ChildrenController, type: :controller do
     context "with invalid params" do
       it "assigns the admin_child as @admin_child" do
         child = Child.create! valid_attributes
-        put :update, {:id => child.to_param, :admin_child => invalid_attributes}, valid_session
+        put :update, {:id => child.to_param, :child => invalid_attributes}, valid_session
         expect(assigns(:admin_child)).to eq(child)
       end
 
       it "re-renders the 'edit' template" do
         child = Child.create! valid_attributes
-        put :update, {:id => child.to_param, :admin_child => invalid_attributes}, valid_session
+        put :update, {:id => child.to_param, :child => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end

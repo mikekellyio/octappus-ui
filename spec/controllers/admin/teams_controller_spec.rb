@@ -71,30 +71,30 @@ RSpec.describe Admin::TeamsController, type: :controller do
     context "with valid params" do
       it "creates a new Admin::Team" do
         expect {
-          post :create, {:admin_team => valid_attributes}, valid_session
+          post :create, {:team => valid_attributes}, valid_session
         }.to change(Team, :count).by(1)
       end
 
       it "assigns a newly created admin_team as @admin_team" do
-        post :create, {:admin_team => valid_attributes}, valid_session
+        post :create, {:team => valid_attributes}, valid_session
         expect(assigns(:admin_team)).to be_a(Team)
         expect(assigns(:admin_team)).to be_persisted
       end
 
       it "redirects to the created admin_team" do
-        post :create, {:admin_team => valid_attributes}, valid_session
+        post :create, {:team => valid_attributes}, valid_session
         expect(response).to redirect_to(admin_team_url(Team.last))
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved admin_team as @admin_team" do
-        post :create, {:admin_team => invalid_attributes}, valid_session
+        post :create, {:team => invalid_attributes}, valid_session
         expect(assigns(:admin_team)).to be_a_new(Team)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:admin_team => invalid_attributes}, valid_session
+        post :create, {:team => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe Admin::TeamsController, type: :controller do
 
       it "updates the requested admin_team" do
         team = Team.create! valid_attributes
-        put :update, {:id => team.to_param, :admin_team => new_attributes}, valid_session
+        put :update, {:id => team.to_param, :team => new_attributes}, valid_session
         team.reload
         expect(team.name).to eq("updated")
       end
 
       it "assigns the requested admin_team as @admin_team" do
         team = Team.create! valid_attributes
-        put :update, {:id => team.to_param, :admin_team => valid_attributes}, valid_session
+        put :update, {:id => team.to_param, :team => valid_attributes}, valid_session
         expect(assigns(:admin_team)).to eq(team)
       end
 
       it "redirects to the admin_team" do
         team = Team.create! valid_attributes
-        put :update, {:id => team.to_param, :admin_team => valid_attributes}, valid_session
+        put :update, {:id => team.to_param, :team => valid_attributes}, valid_session
         expect(response).to redirect_to(admin_team_url(team))
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe Admin::TeamsController, type: :controller do
     context "with invalid params" do
       it "assigns the admin_team as @admin_team" do
         team = Team.create! valid_attributes
-        put :update, {:id => team.to_param, :admin_team => invalid_attributes}, valid_session
+        put :update, {:id => team.to_param, :team => invalid_attributes}, valid_session
         expect(assigns(:admin_team)).to eq(team)
       end
 
       it "re-renders the 'edit' template" do
         team = Team.create! valid_attributes
-        put :update, {:id => team.to_param, :admin_team => invalid_attributes}, valid_session
+        put :update, {:id => team.to_param, :team => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end

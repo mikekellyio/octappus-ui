@@ -3,7 +3,7 @@ class Admin::ChildrenController < ApplicationController
 
   # GET /admin/children
   def index
-    @admin_children = Child.all
+    @admin_children = Child.order("team_id ASC, first_name ASC").all
   end
 
   # GET /admin/children/1
@@ -53,6 +53,6 @@ class Admin::ChildrenController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def admin_child_params
-      params.require(:admin_child).permit(:first_name, :last_name, :nickname, :birthday)
+      params.require(:child).permit(:first_name, :last_name, :nickname, :birthday, :team_id)
     end
 end
