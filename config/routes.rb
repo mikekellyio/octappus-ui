@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  namespace :admin do
+  namespace :api do
     resources :teams
-  end
-  namespace :admin do
     resources :children
   end
+
   namespace :admin do
+    resources :teams
+    resources :children
     resources :steps do
       collection do
         # required for Sortable GUI server side actions
