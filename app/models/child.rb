@@ -7,7 +7,8 @@ class Child < ActiveRecord::Base
   has_many :associated_steps, inverse_of: :child
   has_many :completed_steps, through: :associated_steps, class_name: "Step", source: :step
 
-  has_and_belongs_to_many :awards
+  has_many :award_children
+  has_many :awards, through: :award_children
   has_many :completed_awards, class_name: "Award", through: :completed_steps, source: :awards
 
   def pending_awards
