@@ -5,7 +5,11 @@ class Child < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
 
   has_many :associated_steps, inverse_of: :child
-  has_many :completed_steps, through: :associated_steps, class_name: "Step", source: :step
+  has_many :completed_steps,
+           -> { order(:rgt) },
+           through: :associated_steps,
+           class_name: "Step",
+           source: :step
 
   has_many :award_children
   has_many :awards, through: :award_children
