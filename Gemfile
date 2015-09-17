@@ -10,7 +10,7 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'yui-compressor'
 
 gem 'awesome_nested_set'
 gem "the_sortable_tree", "~> 2.5.0"
@@ -21,8 +21,9 @@ gem "the_sortable_tree", "~> 2.5.0"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
+gem "ember-cli-rails"
+gem 'coffee-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'active_model_serializers', '~> 0.10.0.rc2'
 # bundle exec rake doc:rails generates the API under doc/api.
