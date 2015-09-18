@@ -17,7 +17,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
       'font-src': "'self' data: cloud.typography.com",
-      'connect-src': "'self' our_club_tracker.dev",
+      'connect-src': "'self' *",
       'img-src': "'self' ",
       'style-src': "'self' 'unsafe-inline' ",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"

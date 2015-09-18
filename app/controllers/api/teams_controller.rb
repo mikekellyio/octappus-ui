@@ -1,4 +1,5 @@
 class Api::TeamsController < ApplicationController
+  before_filter :default_format_json
   respond_to :json
 
   def index
@@ -32,5 +33,12 @@ class Api::TeamsController < ApplicationController
 private
   def team_params
     params.fetch(:team).permit(:id, :name)
+  end
+
+  def default_format_json
+    if(request.headers["HTTP_ACCEPT"].nil? &&
+       params[:format].nil?)
+      request.format = :json
+    end
   end
 end
