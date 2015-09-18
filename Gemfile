@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.1'
 gem 'responders', '~> 2.1.0'
+gem 'rack-cors'
 # Use postgresql as the database for Active Record
 #gem 'pg'
 gem 'sqlite3'
@@ -22,7 +23,6 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-gem "ember-cli-rails"
 gem 'coffee-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'active_model_serializers', '~> 0.10.0.rc2'

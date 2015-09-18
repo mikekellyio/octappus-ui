@@ -13,6 +13,16 @@ module.exports = function(environment) {
       }
     },
 
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
+      'font-src': "'self' data: cloud.typography.com",
+      'connect-src': "'self' our_club_tracker.dev",
+      'img-src': "'self' ",
+      'style-src': "'self' 'unsafe-inline' ",
+      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
