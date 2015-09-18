@@ -1,4 +1,4 @@
-class Api::ChildrenController < ApplicationController
+class Api::ChildrenController < ApiController
   respond_to :json
 
   def index
@@ -14,19 +14,19 @@ class Api::ChildrenController < ApplicationController
   def create
     @child = Child.new child_params
     @child.save
-    respond_with @child
+    respond_with :api, @child
   end
 
   def update
     @child = Child.find(params[:id])
     @child.update_attributes(child_params)
-    respond_with @child
+    respond_with :api, @child
   end
 
   def destroy
     @child = Child.find(params[:id])
     @child.destroy
-    respond_with @child
+    respond_with :api, @child
   end
 
 private

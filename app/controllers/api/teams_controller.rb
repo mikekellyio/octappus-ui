@@ -1,5 +1,4 @@
-class Api::TeamsController < ApplicationController
-  before_filter :default_format_json
+class Api::TeamsController < ApiController
   respond_to :json
 
   def index
@@ -15,30 +14,23 @@ class Api::TeamsController < ApplicationController
   def create
     @team = Team.new team_params
     @team.save
-    respond_with @team
+    respond_with :api, @team
   end
 
   def update
     @team = Team.find(params[:id])
     @team.update_attributes(team_params)
-    respond_with @team
+    respond_with :api, @team
   end
 
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
-    respond_with @team
+    respond_with :api, @team
   end
 
 private
   def team_params
     params.fetch(:team).permit(:id, :name)
-  end
-
-  def default_format_json
-    if(request.headers["HTTP_ACCEPT"].nil? &&
-       params[:format].nil?)
-      request.format = :json
-    end
   end
 end
