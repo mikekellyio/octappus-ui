@@ -19,12 +19,17 @@ class Child < ActiveRecord::Base
     completed_awards.where.not(id: award_ids)
   end
 
-  def next_step
+  def pending_steps
+    pending = Step.order(:rgt)\
+                  .where.not(id: completed_step_ids)
     if completed_steps.present?
-      completed_steps.last.next_step
-    else
-      Step.roots.first
+      pending = pending.where("steps.rgt > ?", completed_steps.last.rgt)
     end
+    pending
+  end
+
+  def next_step
+    [pending_steps.first]
   end
 
   def name

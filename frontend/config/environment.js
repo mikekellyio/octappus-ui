@@ -16,16 +16,19 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
-      'font-src': "'self' data: cloud.typography.com",
+      'font-src': "'self' https://fonts.gstatic.com data: cloud.typography.com",
       'connect-src': "'self' *",
-      'img-src': "'self' ",
-      'style-src': "'self' 'unsafe-inline' ",
+      'img-src': "'self' http://robohash.org/ data:",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    sassOptions: {
+      includePaths: ['bower_components/materialize/sass']
     }
   };
 

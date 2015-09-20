@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915210807) do
+ActiveRecord::Schema.define(version: 20150919162455) do
 
   create_table "associated_steps", force: :cascade do |t|
     t.integer  "child_id"
@@ -52,9 +52,10 @@ ActiveRecord::Schema.define(version: 20150915210807) do
     t.string   "last_name"
     t.string   "nickname"
     t.date     "birthday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "team_id"
+    t.string   "avatar_hash"
   end
 
   add_index "children", ["team_id"], name: "index_children_on_team_id"

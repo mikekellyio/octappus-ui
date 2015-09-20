@@ -1,0 +1,7 @@
+<h4>{{model.name}}</h4>
+<div class="divider"></div>
+<div class="row">
+{{#each model.children as |child|}}
+  {{child-card child=child}}
+{{/each}}
+</div>

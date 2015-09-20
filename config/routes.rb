@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     resources :teams
     resources :children
+    resources :steps
   end
 
   namespace :admin do
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'admin/steps/:id' => 'admin/steps#show', as: :step
 
   root 'application#index'
 

@@ -20,5 +20,10 @@
   <%= @admin_child.birthday %>
 </p>
 
+<h5>Pending Steps</h5>
+<ol class="tree">
+  <%= just_tree @admin_child.pending_steps %>
+</ol>
+
 <%= link_to 'Edit', edit_admin_child_path(@admin_child) %> |
 <%= link_to 'Back', admin_children_path %>

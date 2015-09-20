@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Managing Admin Steps</h1>
+<h1>Manage Books</h1>
 
+<%= link_to 'New Step', new_admin_step_path %>
 <ol class="sortable_tree" data-max_levels=5 data-rebuild_url="<%= rebuild_admin_steps_path %>">
   <%= sortable_tree @steps %>
 </ol>
-
-<%= link_to 'New Step', new_admin_step_path %>

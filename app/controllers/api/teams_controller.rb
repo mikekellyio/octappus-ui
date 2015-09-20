@@ -3,29 +3,17 @@ class Api::TeamsController < ApiController
 
   def index
     @teams = params[:ids].present? ? Team.where(id: params[:ids].split(',')) : Team.all
-    respond_with @teams
+    respond_with @teams, include: 'children'
   end
 
   def show
     @team = Team.find(params[:id])
-    respond_with @team
-  end
-
-  def create
-    @team = Team.new team_params
-    @team.save
-    respond_with :api, @team
+    respond_with @team, include: 'children'
   end
 
   def update
     @team = Team.find(params[:id])
     @team.update_attributes(team_params)
-    respond_with :api, @team
-  end
-
-  def destroy
-    @team = Team.find(params[:id])
-    @team.destroy
     respond_with :api, @team
   end
 

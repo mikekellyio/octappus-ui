@@ -8,7 +8,7 @@ class Api::ChildrenController < ApiController
 
   def show
     @child = Child.find(params[:id])
-    respond_with @child
+    respond_with @child, include: 'completed-steps'
   end
 
   def create
