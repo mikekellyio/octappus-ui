@@ -9,5 +9,5 @@ export default DS.Model.extend({
   parent: DS.belongsTo('step', { inverse: 'children' }),
   siblings: DS.hasMany('step'),
   children: DS.hasMany('step', { inverse: 'parent' }),
-  completedBies: DS.hasMany('child')
+  completedBy: DS.hasMany('child', { inverse: 'completedSteps'})
 });

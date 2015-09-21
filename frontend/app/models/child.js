@@ -7,7 +7,7 @@ export default DS.Model.extend({
   birthday: DS.attr('date'),
   avatarHash: DS.attr('string'),
   team: DS.belongsTo('team'),
-  completedSteps: DS.hasMany('step', { inverse: 'completedBies' }),
+  completedSteps: DS.hasMany('step', { inverse: 'completedBy' }),
   pendingSteps: DS.hasMany('step'),
   nextStep: DS.hasMany('step'),
   steps: function(){
@@ -19,6 +19,9 @@ export default DS.Model.extend({
   }.property('avatarHash'),
   badgeAvatar: function(){
     return this.get('avatarUrl') + "&size=40x40";
+  }.property('avatarUrl'),
+  chipAvatar: function(){
+    return this.get('avatarUrl') + "&size=32x32";
   }.property('avatarUrl'),
   largeAvatar: function(){
     return this.get('avatarUrl') + "&size=150x150&bgset=bg1";

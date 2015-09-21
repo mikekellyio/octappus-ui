@@ -15,6 +15,10 @@
 
 <ol>
 {{#each model.steps as |step|}}
-  <li>{{step.title}}</li>
+  <li>
+    {{#if-includes list=step.completedBy obj=model}}
+      {{step.title}}
+    {{/if-includes}}
+  </li>
 {{/each}}
 </ol>
