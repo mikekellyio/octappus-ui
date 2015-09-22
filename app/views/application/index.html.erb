@@ -1,6 +1,33 @@
+<div id="react_app"></div>
+
 <%= content_for :script do %>
 <script>
 var store = new Freezer(/* render initial json here */)
+store.get().getListener().on("update", function(updated){
+  console.log("updated store");  
+});
+
+$("#react_app").on("persist::updated", function(){
+  $.ajax({
+    url: "", //endpoint url
+    type: "PUT",
+    dataType: "json",
+    data: store.get().toJS(),
+    error: function(data){
+      //growl here?
+      var errors = $.parseJSON(data.responseText)
+      console.log(errors)
+      store.get().set(errors)
+    },
+    success: function(data){
+      //growl success
+      store.get().set({errors: {}})
+      store.get().set(data)
+    }
+  })
+});
+
+React.render(React.createElement(OctApp, {store: store.get()}), document.getElementById("react_app"))
 
 </script>
 <% end %>
