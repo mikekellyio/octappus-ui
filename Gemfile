@@ -12,7 +12,7 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'yui-compressor'
-
+gem 'turbolinks'
 gem 'awesome_nested_set'
 gem "the_sortable_tree", "~> 2.5.0"
 
@@ -22,10 +22,11 @@ gem "the_sortable_tree", "~> 2.5.0"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'react-rails', '~> 1.3.0'
 
 gem 'coffee-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'active_model_serializers', '~> 0.10.0.rc3'
+gem 'active_model_serializers', '~> 0.9.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
