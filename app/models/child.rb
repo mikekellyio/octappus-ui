@@ -6,7 +6,7 @@ class Child < ActiveRecord::Base
 
   has_many :associated_steps, inverse_of: :child
   has_many :completed_steps,
-           -> { order(:rgt) },
+           -> { order(:rgt).uniq },
            through: :associated_steps,
            class_name: "Step",
            source: :step
@@ -28,8 +28,25 @@ class Child < ActiveRecord::Base
     pending
   end
 
+  def pending_step_ids
+    pending_steps.ids
+  end
+
+  def steps
+    all_steps = []
+    all_steps << associated_steps
+    all_steps << pending_steps.map do |pending|
+      AssociatedStep.new child_id: self.id, step_id: pending.id
+    end
+
+  end
+
   def next_step
-    [pending_steps.first]
+    pending_steps.first
+  end
+
+  def next_step_id
+    next_step.id
   end
 
   def name

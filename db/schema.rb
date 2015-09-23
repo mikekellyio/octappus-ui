@@ -41,12 +41,6 @@ ActiveRecord::Schema.define(version: 20150919162455) do
   add_index "awards_children", ["award_id"], name: "index_awards_children_on_award_id"
   add_index "awards_children", ["child_id"], name: "index_awards_children_on_child_id"
 
-  create_table "books", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "children", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

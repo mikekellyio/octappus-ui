@@ -1,5 +1,4 @@
 class TeamSerializer < ActiveModel::Serializer
-  attributes :id, :name, :created_at, :updated_at
+  attributes :id, :name, :created_at, :updated_at, :child_ids
 
-  has_many :children
 end
