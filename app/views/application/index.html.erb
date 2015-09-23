@@ -2,9 +2,9 @@
 
 <%= content_for :script do %>
 <script>
-var store = new Freezer(/* render initial json here */)
+var store = new Freezer({})
 store.get().getListener().on("update", function(updated){
-  console.log("updated store");  
+  console.log("updated store");
 });
 
 $("#react_app").on("persist::updated", function(){
@@ -27,7 +27,7 @@ $("#react_app").on("persist::updated", function(){
   })
 });
 
-React.render(React.createElement(OctApp, {store: store.get()}), document.getElementById("react_app"))
+React.render(React.createElement(Teams, {store: store.get()}), document.getElementById("react_app"))
 
 </script>
 <% end %>
