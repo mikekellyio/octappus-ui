@@ -1,16 +1,19 @@
+var RouteHandler = ReactRouter.RouteHandler;
 var OctApp = React.createClass({
 
   render: function() {
-    return <div />;
+    return (
+      <RouteHandler/>
+    );
   },
-  
+
   componentDidMount: function(){
-    var me = thiss;
-    var listener = this.props.getListener();
-    
+    var me = this;
+    /*var listener = store.getListener();
+
     listener.on("update", function(updated){
       console.log("updated OctApp state");
       me.setProps({store: updated});
-    })
+    })*/
   }
 });

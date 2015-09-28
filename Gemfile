@@ -23,6 +23,8 @@ gem "the_sortable_tree", "~> 2.5.0"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'react-rails', '~> 1.3.0'
+gem 'react-bootstrap-rails'
+gem 'react-router-rails', '~>0.13.3.1'
 
 gem 'coffee-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

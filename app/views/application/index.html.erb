@@ -1,33 +1,19 @@
 <div id="react_app"></div>
 
 <%= content_for :script do %>
+<%= react_router 'MyRoutes' %>
 <script>
-var store = new Freezer({})
-store.get().getListener().on("update", function(updated){
-  console.log("updated store");
-});
+
 
 $("#react_app").on("persist::updated", function(){
-  $.ajax({
-    url: "", //endpoint url
-    type: "PUT",
-    dataType: "json",
-    data: store.get().toJS(),
-    error: function(data){
-      //growl here?
-      var errors = $.parseJSON(data.responseText)
-      console.log(errors)
-      store.get().set(errors)
-    },
-    success: function(data){
-      //growl success
-      store.get().set({errors: {}})
-      store.get().set(data)
-    }
-  })
+
 });
 
-React.render(React.createElement(Teams, {store: store.get()}), document.getElementById("react_app"))
+ReactRouter.run(MyRoutes, function (Handler) {
+  React.render(React.createElement(Handler), document.getElementById("react_app"));
+});
+
+//React.render(React.createElement(Teams, {store: store.get()}), )
 
 </script>
 <% end %>

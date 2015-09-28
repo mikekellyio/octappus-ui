@@ -23,8 +23,10 @@ var Teams = React.createClass({
       }
     }.bind(this));
   },
+
   render: function() {
     var teams = ""
+    var ListGroup = ReactBootstrap.ListGroup
     console.log(teams)
     if(this.state.teams){
       teams = this.state.teams.map(function(team){
@@ -34,9 +36,9 @@ var Teams = React.createClass({
       })
     }
     return (
-      <ul className="unstyled">
+      <ListGroup>
         {teams}
-      </ul>
+      </ListGroup>
     );
   }
 });
