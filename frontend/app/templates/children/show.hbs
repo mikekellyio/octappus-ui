@@ -11,14 +11,16 @@
     {{/link-to}}
   </div>
 </div>
-<div class="divider"></div>
 
-<ol>
-{{#each model.steps as |step|}}
-  <li>
-    {{#if-includes list=step.completedBy obj=model}}
-      {{step.title}}
-    {{/if-includes}}
-  </li>
-{{/each}}
-</ol>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3">{{#link-to 'children.show.nextstep'}}Steps{{/link-to}}</li>
+      <li class="tab col s3 disabled"><a href="#test3">Attendance</a></li>
+      <li class="tab col s3 disabled"><a href="#test4">Awards</a></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  {{outlet}}
+</div>

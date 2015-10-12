@@ -17,3 +17,12 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.tabs a.active {
+    border-bottom: 1px solid red;
+}
+
+li > .title {
+  display: block;
+  font-weight: bold;
+}

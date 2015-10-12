@@ -8,5 +8,5 @@ class ChildSerializer < ActiveModel::Serializer
   belongs_to :team
   has_many :completed_steps, key: "completed-steps"
   has_many :pending_steps, key: "pending-steps"
-  has_one :next_step, key: "next-step"
+  belongs_to :next_step, key: "next-step"
 end

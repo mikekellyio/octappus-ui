@@ -10,8 +10,9 @@ Router.map(function() {
     this.route('show', { path: '/teams/:team_id' });
   });
 
-  this.route('children', { path: '/children' }, function(){
-    this.route('show', { path: ':child_id' });
+  this.route('children', { path: '/children' });
+  this.route('children.show', { path: '/children/:child_id' }, function(){
+      this.route('nextstep', { path: 'next_step' });
   });
   this.route('steps');
 });

@@ -9,10 +9,7 @@ export default DS.Model.extend({
   team: DS.belongsTo('team'),
   completedSteps: DS.hasMany('step', { inverse: 'completedBy' }),
   pendingSteps: DS.hasMany('step'),
-  nextStep: DS.hasMany('step'),
-  steps: function(){
-    return this.store.findAll('step');
-  }.property(),
+  nextStep: DS.belongsTo('step'),
   avatarUrl: function() {
     var hash = this.get('avatarHash') ? this.get('avatarHash') : this.get('name');
     return "http://robohash.org/"+hash+".png?";
