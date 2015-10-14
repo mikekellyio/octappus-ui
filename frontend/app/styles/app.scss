@@ -22,6 +22,15 @@ main {
     border-bottom: 1px solid red;
 }
 
+a.active .chip {
+  font-weight: bold;
+  background-color: $primary-color-light;
+}
+
+.subnav {
+  margin-bottom: 10px;
+}
+
 li > .title {
   display: block;
   font-weight: bold;

@@ -12,7 +12,15 @@ Router.map(function() {
 
   this.route('children', { path: '/children' });
   this.route('children.show', { path: '/children/:child_id' }, function(){
-      this.route('nextstep', { path: 'next_step' });
+      this.route('steps', { path: 'step' }, function(){
+        this.route('next', { path: 'next' });
+        this.route('pending', { path: 'pending' }, function(){
+          this.route('show', { path: ':step_id' });
+        });
+        this.route('completed', { path: 'completed' }, function(){
+          this.route('show', { path: ':step_id' });
+        });
+      });
   });
   this.route('steps');
 });
