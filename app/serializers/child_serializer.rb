@@ -6,7 +6,7 @@ class ChildSerializer < ActiveModel::Serializer
   attributes :birthday, :nickname, :created_at, :updated_at
 
   belongs_to :team
-  has_many :completed_steps, key: "completed-steps"
+  has_many :filtered_completed_steps, key: "completed-steps"
   has_many :pending_steps, key: "pending-steps"
   belongs_to :next_step, key: "next-step"
 end

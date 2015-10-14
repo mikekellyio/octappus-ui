@@ -37,6 +37,10 @@ class Child < ActiveRecord::Base
     step
   end
 
+  def filtered_completed_steps
+    completed_steps.where.not(id: completed_steps.leaves.ids)
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
