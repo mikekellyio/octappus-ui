@@ -1,7 +1,8 @@
 @import 'components/color';
 
 // Custom color settings go here
-//$primary-color: color("pink", "lighten-2");
+$primary-color: color("blue-grey", "lighten-2");
+$primary-color-light: color("blue-grey", "lighten-5");
 
 @import 'components/variables';
 @import 'materialize';
@@ -18,13 +19,22 @@ main {
   flex: 1 0 auto;
 }
 
+.primary-color {
+  background-color: $primary-color;
+}
+
+.page-footer {
+  background-color: $secondary-color;
+}
+
 .tabs a.active {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid $primary-color;
 }
 
 a.active .chip {
   font-weight: bold;
-  background-color: $primary-color-light;
+  color: $primary-color-light;
+  background-color: $primary-color;
 }
 
 .subnav {
