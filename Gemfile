@@ -7,7 +7,7 @@ gem 'responders', '~> 2.1.0'
 gem 'rack-cors'
 # Use postgresql as the database for Active Record
 #gem 'pg'
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +25,7 @@ gem 'jquery-ui-rails'
 
 gem 'coffee-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'active_model_serializers', '~> 0.10.0.rc3'
+gem 'jsonapi-resources'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

@@ -28,13 +28,25 @@ class Child < ActiveRecord::Base
     pending
   end
 
+  def pending_step_ids
+    pending_steps.ids
+  end
+
   def next_step
-    step = if pending_steps.first.leaf?
+    step = if pending_steps.first && pending_steps.first.leaf?
       pending_steps.first.parent || pending_steps.first
     else
       pending_steps.first
     end
     step
+  end
+
+  def next_step_id= id
+    next_step_id
+  end
+
+  def next_step_id
+    next_step.id if next_step
   end
 
   def filtered_completed_steps

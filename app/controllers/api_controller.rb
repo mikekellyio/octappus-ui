@@ -1,6 +1,11 @@
 class ApiController < ApplicationController
+  include JSONAPI::ActsAsResourceController
   protect_from_forgery
   skip_before_action :verify_authenticity_token, if: :json_request?
+
+  def context
+    #{current_user: current_user}
+  end
 
   protected
 

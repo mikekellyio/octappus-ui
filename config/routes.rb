@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: 'json' } do
-    resources :teams
-    resources :children
-    resources :steps
+  namespace :api do
+    jsonapi_resources :teams
+    jsonapi_resources :children
+    jsonapi_resources :steps
   end
 
   namespace :admin do

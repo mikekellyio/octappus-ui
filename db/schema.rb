@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150919162455) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "associated_steps", force: :cascade do |t|
     t.integer  "child_id"
     t.integer  "step_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20150919162455) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "associated_steps", ["child_id"], name: "index_associated_steps_on_child_id"
-  add_index "associated_steps", ["step_id"], name: "index_associated_steps_on_step_id"
+  add_index "associated_steps", ["child_id"], name: "index_associated_steps_on_child_id", using: :btree
+  add_index "associated_steps", ["step_id"], name: "index_associated_steps_on_step_id", using: :btree
 
   create_table "awards", force: :cascade do |t|
     t.string   "name"
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20150919162455) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "awards_children", ["award_id"], name: "index_awards_children_on_award_id"
-  add_index "awards_children", ["child_id"], name: "index_awards_children_on_child_id"
+  add_index "awards_children", ["award_id"], name: "index_awards_children_on_award_id", using: :btree
+  add_index "awards_children", ["child_id"], name: "index_awards_children_on_child_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150919162455) do
     t.string   "avatar_hash"
   end
 
-  add_index "children", ["team_id"], name: "index_children_on_team_id"
+  add_index "children", ["team_id"], name: "index_children_on_team_id", using: :btree
 
   create_table "steps", force: :cascade do |t|
     t.string   "title"
@@ -72,9 +75,9 @@ ActiveRecord::Schema.define(version: 20150919162455) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "steps", ["lft"], name: "index_steps_on_lft"
-  add_index "steps", ["parent_id"], name: "index_steps_on_parent_id"
-  add_index "steps", ["rgt"], name: "index_steps_on_rgt"
+  add_index "steps", ["lft"], name: "index_steps_on_lft", using: :btree
+  add_index "steps", ["parent_id"], name: "index_steps_on_parent_id", using: :btree
+  add_index "steps", ["rgt"], name: "index_steps_on_rgt", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
