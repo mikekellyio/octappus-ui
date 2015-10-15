@@ -5,5 +5,10 @@ export default Ember.Route.extend({
     let child = this.modelFor('children.show');
     let pendingSteps = child.get('filteredPendingSteps');
     return pendingSteps;
+  },
+  afterModel(model){
+    if(model.get('length') === 0){
+      this.transitionTo("children.show.steps.completed");
+    }
   }
 });
