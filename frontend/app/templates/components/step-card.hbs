@@ -7,7 +7,7 @@
       <ol>
         {{#each step.children as |child_step|}}
           <li><span class="title">{{child_step.title}}</span>
-            {{child_step.content}}
+            <p className="flow-text">{{child_step.content}}</p>
           </li>
         {{/each}}
       </ol>
