@@ -16,10 +16,10 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
-      'font-src': "'self' https://fonts.gstatic.com data: cloud.typography.com",
+      'font-src': "'self' https://fonts.gstatic.com data: cloud.typography.com https://maxcdn.bootstrapcdn.com/",
       'connect-src': "'self' *",
       'img-src': "'self' http://robohash.org/ data:",
-      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com/",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
 

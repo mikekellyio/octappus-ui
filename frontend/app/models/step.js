@@ -8,6 +8,9 @@ export default DS.Model.extend({
   children: DS.hasMany('step', { inverse: 'parent' }),
   completedBy: DS.hasMany('child', { inverse: 'completedSteps'}),
   isLeaf: function(){
-    return this.get('children').length === 0;
-  }.property('children'),
+    return this.get('children').get('length') === 0 || this.get('children') === undefined;
+  }.property('children.[]'),
+  childrenCount: function(){
+    return this.get('children').get('length')
+  }.property('children.[]')
 });

@@ -2,7 +2,7 @@
 {{#md-card title=step.title class=cardClass
     titleClass=titleClass}}
     {{#md-card-content class=""}}
-    <p>
+    <p><i class={{if step.isLeaf "fa fa-leaf"}}></i>
       {{step.content}}
       <ol>
         {{#each step.children as |child_step|}}

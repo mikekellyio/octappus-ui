@@ -22,6 +22,20 @@ export default Ember.Route.extend({
           this.transitionTo('children.show');
         }.bind(this));
       }.bind(this))
+    },
+    cancelSignOff: function(step){
+      step.get('children').forEach(function(subStep){
+        this.currentModel.get('completedSteps').removeObject(subStep);
+        this.currentModel.get('pendingSteps').pushObject(subStep);
+      }.bind(this))
+      this.currentModel.get('completedSteps').removeObject(step);
+      this.currentModel.get('pendingSteps').pushObject(step);
+
+      step.save().then(function(){
+        this.currentModel.reload().then(function(){
+          this.transitionTo('children.show');
+        }.bind(this));
+      }.bind(this))
     }
   }
 });

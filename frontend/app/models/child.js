@@ -12,10 +12,10 @@ export default DS.Model.extend({
   nextStep: DS.belongsTo('step'),
   filteredCompletedSteps: function(){
     return this.get('completedSteps').filterBy('isLeaf', false);
-  }.property('completedSteps'),
+  }.property('completedSteps.[]'),
   filteredPendingSteps: function(){
     return this.get('pendingSteps').filterBy('isLeaf', false);
-  }.property('pendingSteps'),
+  }.property('pendingSteps.[]'),
   avatarUrl: function() {
     var hash = this.get('avatarHash') ? this.get('avatarHash') : this.get('name');
     return "http://robohash.org/"+hash+".png?";
