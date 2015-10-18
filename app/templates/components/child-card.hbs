@@ -1,0 +1,15 @@
+<div class="col s6 m6 l3">
+  {{#md-card image=child.largeAvatar
+    activator=true
+    class="hoverable"}}
+      {{#md-card-action}}
+        {{#link-to 'children.show' child class="truncate"}}
+          {{child.name}}
+        {{/link-to}}
+      {{/md-card-action}}
+
+      {{#md-card-reveal}}
+        Mark Absent
+      {{/md-card-reveal}}
+  {{/md-card}}
+</div>

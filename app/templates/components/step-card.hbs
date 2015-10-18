@@ -1,0 +1,20 @@
+<div class={{wrapperClass}}>
+{{#md-card title=step.title class=cardClass
+    titleClass=titleClass}}
+    {{#md-card-content class=""}}
+    <p><i class={{if step.isLeaf "fa fa-leaf"}}></i>
+      {{step.content}}
+      <ol>
+        {{#each step.children as |child_step|}}
+          <li><span class="title">{{child_step.title}}</span>
+            <p className="flow-text">{{child_step.content}}</p>
+          </li>
+        {{/each}}
+      </ol>
+    </p>
+    {{/md-card-content}}
+    {{#md-card-action class=actionClass}}
+      {{yield}}
+    {{/md-card-action}}
+{{/md-card}}
+</div>

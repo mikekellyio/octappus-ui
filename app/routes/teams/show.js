@@ -1,0 +1,10 @@
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params){
+    return this.store.findRecord('team', params.team_id, { reload: true });
+  },
+  afterModel(model){
+    model.get('children')
+  }
+});
