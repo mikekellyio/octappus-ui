@@ -18,6 +18,9 @@ class Child < ActiveRecord::Base
   def pending_awards
     completed_awards.where.not(id: award_ids)
   end
+  def pending_award_ids
+    completed_awards.where.not(id: award_ids).ids
+  end
 
   def pending_steps
     pending = Step.order(:rgt)\

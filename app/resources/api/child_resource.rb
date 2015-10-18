@@ -9,5 +9,8 @@ class ChildResource < JSONAPI::Resource
   has_many :completed_steps, class_name: 'Step', acts_as_set: true
   has_many :pending_steps, class_name: 'Step', acts_as_set: true
   has_one :next_step, class_name: 'Step'
+  has_many :awards
+  has_many :completed_awards, class_name: "Award"
+  has_many :pending_awards,  class_name: "Award"
 end
 end
