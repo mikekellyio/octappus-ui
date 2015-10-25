@@ -21,7 +21,7 @@ export default DS.Model.extend({
   }.property('pendingSteps.[]'),
   avatarUrl: function() {
     var hash = this.get('avatarHash') ? this.get('avatarHash') : this.get('name');
-    return "http://robohash.org/"+hash+".png?";
+    return "//robohash.org/"+hash+".png?";
   }.property('avatarHash'),
   badgeAvatar: function(){
     return this.get('avatarUrl') + "&size=40x40";
