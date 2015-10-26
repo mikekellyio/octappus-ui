@@ -45,3 +45,8 @@ li > .title {
   display: block;
   font-weight: bold;
 }
+
+.child-card .card-image img{
+  min-height:150px;
+  min-width:150px;
+}

@@ -30,7 +30,7 @@ export default DS.Model.extend({
     return this.get('avatarUrl') + "&size=32x32";
   }.property('avatarUrl'),
   largeAvatar: function(){
-    return this.get('avatarUrl') + "&size=150x150&bgset=bg1";
+    return this.get('avatarUrl') + "&size=300x300&bgset=bg1";
   }.property('avatarUrl'),
   name: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
