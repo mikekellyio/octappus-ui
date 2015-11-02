@@ -6,9 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('teams', { path: '/' }, function(){
-    this.route('show', { path: '/teams/:team_id' });
-  });
+  this.route('organizations', {path: '/'}, function(){
+    this.route('show', { path: '/orgs/:organization_id' }, function(){
+      this.route('teams');
+    });
+  })
+
+  this.route('teams.show', { path: '/teams/:team_id' });
 
   this.route('children', { path: '/children' });
   this.route('children.show', { path: '/children/:child_id' }, function(){

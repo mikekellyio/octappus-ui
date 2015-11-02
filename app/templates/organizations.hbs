@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col s12 m4 l3 hide-on-small-only">
+    <h4>Clubs</h4>
+    {{#md-collection content=model as |org|}}
+      {{#link-to "organizations.show" org class='collection-item'}}
+        {{ org.name }}
+      {{/link-to}}
+    {{/md-collection}}
+  </div>
+  <div class="col s12 m8 l9">
+    {{outlet}}
+  </div>
+</div>
