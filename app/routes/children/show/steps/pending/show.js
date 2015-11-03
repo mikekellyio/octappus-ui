@@ -5,6 +5,7 @@ export default Ember.Route.extend({
     return this.store.findRecord('step', params.step_id);
   },
   afterModel(model){
-    model.get('children')
+    model.get('children');
+    model.get('ancestors');
   }
 });

@@ -9,7 +9,8 @@ export default Ember.Route.extend({
   },
   afterModel(model){
     if(model){
-      model.get('children')
+      model.get('children');
+      model.get('ancestors');
     }else{
       this.transitionTo("children.show.steps.completed")
     }
