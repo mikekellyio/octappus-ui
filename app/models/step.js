@@ -4,7 +4,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   content: DS.attr('string'),
   parent: DS.belongsTo('step', { inverse: 'children' }),
-  siblings: DS.hasMany('step'),
+  siblings: DS.hasMany('step', { inverse: 'siblings' }),
+  ancestors: DS.hasMany('step'),
   children: DS.hasMany('step', { inverse: 'parent' }),
   completedBy: DS.hasMany('child', { inverse: 'completedSteps'}),
   isLeaf: function(){
