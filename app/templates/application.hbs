@@ -17,6 +17,14 @@
 </header>
 
 <main class="container">
+    {{#if session.isAuthenticated}}
+      <span>You are currently logged as: {{session.secure.profile.email}}</span>
+      <a {{ action 'logout' }}>Logout</a>
+    {{else}}
+      <span>You are currently not logged in.</span>
+      <a {{ action 'login' }}>Login</a>
+    {{/if}}
+    
     {{outlet}}
     {{!-- ember-cli-materialize modal container --}}
     {{md-modal-container}}

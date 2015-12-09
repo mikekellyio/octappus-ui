@@ -1,11 +1,8 @@
+import Ember from 'ember';
 import DS from 'ember-data';
-//import $ from 'jquery';
-//import ActiveModelAdapter from 'active-model-adapter';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default DS.JSONAPIAdapter.extend({
-  /*  headers: {
-      "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content'),
-      "Content-Type": "application/json"
-    }, */
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+    authorizer: 'authorizer:auth0',
     namespace: 'api'
 });

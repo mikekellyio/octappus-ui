@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('team', params.team_id, { reload: true });
   },
   afterModel(model){
-    model.get('children')
+    model.get('children');
   }
 });

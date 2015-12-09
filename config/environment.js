@@ -15,19 +15,30 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
-      'font-src': "'self' https://fonts.gstatic.com data: cloud.typography.com https://maxcdn.bootstrapcdn.com/",
-      'connect-src': "'self' *",
-      'img-src': "'self' https://robohash.org/ http://robohash.org/ data:",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cloudfront.net stripe.com fast.wistia.com use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com 'unsafe-inline' https://*.auth0.com octappus.auth0.com",
+      'font-src': "'self' https://fonts.gstatic.com data: cloud.typography.com https://maxcdn.bootstrapcdn.com/ https://*.auth0.com",
+      'connect-src': "'self' http://localhost:* octappus.auth0.com http://our_club_tracker.dev",
+      'img-src': "'self' https://robohash.org/ http://robohash.org/ *.gravatar.com *.wp.com data:",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com/",
-      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com",
     },
-
+    
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
+  
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'index',
+    routeAfterAuthentication: 'protected',
+    routeIfAlreadyAuthenticated: 'protected'
+  };
+  
+  ENV['auth0-ember-simple-auth'] = {
+    clientID: "jy56Qyf1kpnoFkrRbiTB68UzXYRrvSbg",
+    domain: "octappus.auth0.com"
+  }
 
   if (environment === 'development') {
     //ENV.APP.LOG_RESOLVER = true;

@@ -6,11 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('organizations', {path: '/'}, function(){
+  this.route('organizations', {path: '/orgs'}, function(){
     this.route('show', { path: '/orgs/:organization_id' }, function(){
       this.route('teams');
     });
-  })
+  });
 
   this.route('teams.show', { path: '/teams/:team_id' });
 
@@ -31,6 +31,7 @@ Router.map(function() {
       });
   });
   this.route('steps');
+  this.route('protected');
 });
 
 export default Router;
